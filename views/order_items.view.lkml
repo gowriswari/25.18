@@ -12,6 +12,11 @@ view: order_items {
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.created_at ;;
   }
+
+  dimension: formated_date{
+    #type: date
+    sql: FORMAT_TIMESTAMP("%d, %b %Y",${created_date});;
+    }
   dimension_group: delivered {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
@@ -63,16 +68,16 @@ view: order_items {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	users.last_name,
-	users.id,
-	users.first_name,
-	inventory_items.id,
-	inventory_items.product_name,
-	products.name,
-	products.id,
-	orders.order_id
-	]
+  id,
+  users.last_name,
+  users.id,
+  users.first_name,
+  inventory_items.id,
+  inventory_items.product_name,
+  products.name,
+  products.id,
+  orders.order_id
+  ]
   }
 
 }
