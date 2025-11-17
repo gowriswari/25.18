@@ -8,7 +8,7 @@ include: "/views/users.view.lkml"
 
 datagroup: gowri_project1_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+  max_cache_age: "2 hour"
 }
 
 persist_with: gowri_project1_default_datagroup
